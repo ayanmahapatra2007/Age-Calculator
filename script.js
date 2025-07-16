@@ -1,7 +1,18 @@
+let dobPicker;
+
 function setTodayDate() {
   const today = new Date();
   const formatted = today.toISOString().split('T')[0];
   document.getElementById('todayDate').value = formatted;
+}
+
+function initFlatpickr() {
+  dobPicker = flatpickr("#dob", {
+    dateFormat: "Y-m-d",
+    maxDate: "today",
+    allowInput: true,
+    clickOpens: false
+  });
 }
 
 function calculateAge() {
@@ -47,7 +58,6 @@ function calculateAge() {
   document.getElementById('totalMinutes').textContent = totalMinutes;
   document.getElementById('totalSeconds').textContent = totalSeconds;
 
-  // Next birthday
   const nextBirthday = new Date(today.getFullYear(), dob.getMonth(), dob.getDate());
   if (nextBirthday < today) nextBirthday.setFullYear(today.getFullYear() + 1);
 
@@ -64,7 +74,6 @@ function calculateAge() {
   document.getElementById('nextMonths').textContent = nextBDMonths;
   document.getElementById('nextDays').textContent = nextBDDays;
 
-  // Upcoming birthdays
   const upcomingList = document.getElementById('upcomingList');
   upcomingList.innerHTML = '';
   for (let i = 1; i <= 10; i++) {
