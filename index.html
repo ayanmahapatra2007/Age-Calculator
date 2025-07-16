@@ -4,12 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Age Calculator - Ayan Mahapatra</title>
-
-  <!-- Flatpickr CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
-<body onload="setTodayDate(); initFlatpickr();">
+<body onload="setTodayDate()">
   <div class="container">
     <h1>Age Calculator</h1>
     <p class="credit">Created by Ayan Mahapatra</p>
@@ -19,16 +16,14 @@
       <input type="date" id="todayDate" disabled />
 
       <label>Date of Birth</label>
-      <div class="dob-wrapper">
-        <input
-          type="text"
-          id="dob"
-          placeholder="YYYY-MM-DD"
-          inputmode="numeric"
-          autocomplete="off"
-        />
-        <button type="button" onclick="dobPicker.open()" class="calendar-btn">📅</button>
-      </div>
+      <input
+        type="text"
+        id="dob"
+        placeholder="YYYY-MM-DD"
+        inputmode="numeric"
+        pattern="\d{4}-\d{2}-\d{2}"
+        autocomplete="off"
+      />
 
       <div class="buttons">
         <button onclick="clearFields()">Clear</button>
@@ -68,8 +63,6 @@
     </div>
   </div>
 
-  <!-- Flatpickr JS -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="script.js"></script>
 </body>
 </html>
