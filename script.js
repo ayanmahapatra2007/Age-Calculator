@@ -1,18 +1,7 @@
-let dobPicker;
-
 function setTodayDate() {
   const today = new Date();
   const formatted = today.toISOString().split('T')[0];
   document.getElementById('todayDate').value = formatted;
-}
-
-function initFlatpickr() {
-  dobPicker = flatpickr("#dob", {
-    dateFormat: "Y-m-d",
-    maxDate: "today",
-    allowInput: true,
-    clickOpens: false
-  });
 }
 
 function calculateAge() {
@@ -20,6 +9,11 @@ function calculateAge() {
   const dobInput = document.getElementById('dob').value;
   if (!dobInput) return alert("Please enter your date of birth!");
   const dob = new Date(dobInput);
+
+  if (isNaN(dob.getTime())) {
+    alert("Invalid date! Please enter in YYYY-MM-DD format.");
+    return;
+  }
 
   if (today < dob) {
     alert("Oops! You haven't been born yet 😅");
