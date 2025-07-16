@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Age Calculator - Ayan Mahapatra</title>
+
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
-<body onload="setTodayDate()">
+<body onload="setTodayDate(); initFlatpickr();">
   <div class="container">
     <h1>Age Calculator</h1>
     <p class="credit">Created by Ayan Mahapatra</p>
@@ -16,13 +19,16 @@
       <input type="date" id="todayDate" disabled />
 
       <label>Date of Birth</label>
-      <input 
-        type="text" 
-        id="dob" 
-        placeholder="YYYY-MM-DD" 
-        onfocus="this.type='date'" 
-        onblur="if(!this.value)this.type='text'"
-      />
+      <div class="dob-wrapper">
+        <input
+          type="text"
+          id="dob"
+          placeholder="YYYY-MM-DD"
+          inputmode="numeric"
+          autocomplete="off"
+        />
+        <button type="button" onclick="dobPicker.open()" class="calendar-btn">📅</button>
+      </div>
 
       <div class="buttons">
         <button onclick="clearFields()">Clear</button>
@@ -58,12 +64,12 @@
 
     <div class="upcoming-section">
       <h2>Upcoming Birthdays</h2>
-      <ul class="upcoming-list" id="upcomingList">
-        <!-- Filled by JS -->
-      </ul>
+      <ul class="upcoming-list" id="upcomingList"></ul>
     </div>
   </div>
 
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="script.js"></script>
 </body>
 </html>
