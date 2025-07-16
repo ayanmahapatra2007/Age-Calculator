@@ -40,6 +40,21 @@ input[type="date"], input[type="text"] {
   color: white;
 }
 
+.dob-wrapper {
+  display: flex;
+  gap: 6px;
+}
+
+.calendar-btn {
+  background-color: #00e676;
+  border: none;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 20px;
+  cursor: pointer;
+  color: black;
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -76,7 +91,6 @@ button:hover {
   background: #1e1e1e;
   padding: 10px;
   border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .age-box p {
