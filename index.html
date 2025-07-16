@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Age Calculator - Ayan Mahapatra</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="setTodayDate()">
+  <div class="container">
+    <h1>Age Calculator</h1>
+    <p class="credit">Created by Ayan Mahapatra</p>
+
+    <div class="input-section">
+      <label>Today's Date</label>
+      <input type="date" id="todayDate" disabled />
+
+      <label>Date of Birth</label>
+      <input 
+        type="text" 
+        id="dob" 
+        placeholder="YYYY-MM-DD" 
+        onfocus="this.type='date'" 
+        onblur="if(!this.value)this.type='text'"
+      />
+
+      <div class="buttons">
+        <button onclick="clearFields()">Clear</button>
+        <button onclick="calculateAge()">Calculate</button>
+      </div>
+    </div>
+
+    <div class="result-section">
+      <h2>Your Age</h2>
+      <div class="age-box">
+        <p><span id="years">--</span> Years</p>
+        <p><span id="months">--</span> Months</p>
+        <p><span id="days">--</span> Days</p>
+      </div>
+
+      <h2>Next Birthday</h2>
+      <div class="age-box">
+        <p><span id="nextMonths">--</span> Months</p>
+        <p><span id="nextDays">--</span> Days</p>
+      </div>
+
+      <h2>Extras</h2>
+      <ul class="extras">
+        <li>Total Years: <span id="totalYears">--</span></li>
+        <li>Total Months: <span id="totalMonths">--</span></li>
+        <li>Total Weeks: <span id="totalWeeks">--</span></li>
+        <li>Total Days: <span id="totalDays">--</span></li>
+        <li>Total Hours: <span id="totalHours">--</span></li>
+        <li>Total Minutes: <span id="totalMinutes">--</span></li>
+        <li>Total Seconds: <span id="totalSeconds">--</span></li>
+      </ul>
+    </div>
+
+    <div class="upcoming-section">
+      <h2>Upcoming Birthdays</h2>
+      <ul class="upcoming-list" id="upcomingList">
+        <!-- Filled by JS -->
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
